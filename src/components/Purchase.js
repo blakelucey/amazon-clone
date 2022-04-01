@@ -20,11 +20,12 @@ function Purchase({book}) {
     const price = await Moralis.Web3API.token.getTokenPrice(options);
     const priceMatic = book.price / price.usdPrice;
     
-    // Send Matic to book store owenr address
+    // Send Matic to book store owner address
 
     const options1 = {
       type: "native", 
       amount: Moralis.Units.ETH(priceMatic), 
+      //receiver = account sending money to.
       receiver: "xxxxx"
     }
     let result = await Moralis.transfer(options1)
